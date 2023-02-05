@@ -1,0 +1,607 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Sample API",
+    "description": "Buy or rent spacecrafts"
+  },
+  "servers": [
+    {
+      "url": "https://github.com/GhermanTeodora/GhermanTeodora.github.io"
+    }
+  ],
+  "paths": {
+    "/plants/{Common-name}": {
+      "parameters": [
+        {
+          "name": "Common-name",
+          "description": "The name of the plant",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Common-name"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read a spacecraft",
+        "responses": {
+          "200": {
+            "description": "Plant corresponding to common name",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plant"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No plant found for the provided `common name`",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+ "components": {
+    "schemas": {
+      "Plant": {
+        "type": "object",
+        "properties": {
+
+      "Categories": {
+            "type": "string"
+          },
+      "Disease": {
+            "type": "string"
+          },
+      "Img": {
+            "type": "string"
+          },
+      "Use": {
+        "type" : "string",
+        "enum" : [
+          "Potted plant", 
+          "Secondary",
+          "Tertiary",
+          "Hanging",
+          "Ground cover",
+          "Table top",
+          "Primary", 
+          "Flower",
+          "Colors / Forms"
+        ]
+      },
+      "Latin name": {
+            "type": "string"
+          },
+      "Insects": {
+        "type" : "string",
+        "enum" : [
+          "Spider mite", 
+          "Apahid",
+          "Mealy bug",
+          "Scale",
+          "N/A",
+          "White fly",
+          "Primary", 
+          "Flower",
+          "Colors / Forms"
+        ]
+      },
+      "Avaibility": {
+            "type": "string"
+          },
+      "Style": {
+            "type": "string"
+          },
+      "Bearing": {
+            "type": "string"
+          },
+      "Light tolered": {
+            "type": "string"
+          },
+      "Height at purchase": {
+        "type" : "object",
+        "required" : [
+          "M", 
+          "CM"
+        ],
+        "properties": {
+          "M" : {
+            "type": "number"
+          },
+        "CM" : {
+            "type": "number"
+          }
+        }
+      },
+      "Light ideal": {
+            "type": "string"
+          },
+      "Width at purchase": {
+        "type" : "object",
+        "required" : [
+          "M", 
+          "CM"
+        ],
+        "properties": {
+          "M" : {
+            "type": "number"
+          },
+          "CM" : {
+            "type": "number"
+          }
+        }
+      },
+      "id": {
+            "type": "string"
+          },
+      "Appeal": {
+            "type": "string"
+          },
+      "Perfume": {
+            "type": "string"
+          },
+      "Growth": {
+            "type": "string"
+          },
+      "Width potential": {
+        "type" : "object",
+        "required" : [
+          "M", 
+          "CM"
+        ],
+        "properties": {
+          "M" : {
+            "type": "number"
+          },
+        "CM" : {
+            "type": "number"
+          }
+        }
+      },
+      "Common name (fr.)": {
+            "type": "string"
+          },
+      "Pruning": {
+            "type": "string"
+          },
+      "Family": {
+            "type": "string"
+          },
+      "Height potential": {
+        "type" : "object",
+        "required" : [
+          "M", 
+          "CM"
+        ],
+        "properties": {
+          "M" : {
+            "type": "number"
+          },
+        "CM" : {
+            "type": "number"
+          }
+        }
+      },
+      "Origin": {
+        "type" : "string",
+        "enum" : [
+          "Cultivar", 
+          "Hybrid",
+          "Brazil",
+          "Mediterranean",
+          "Guyana",
+          "Mexico",
+          "Asia", 
+          "Venezuela",
+          "India",
+          "Honduras", 
+          "South Africa",
+          "Madagascar",
+          "Africa",
+          "Philippines",
+          "Central America",
+          "New Calidonia",
+          "Cultivar", 
+          "Taiwan",
+          "Zimbabwe",
+          "South Pacific",
+          "Canaries",
+          "Malaysia",
+          "Japan", 
+          "China",
+          "Ecuador",
+          "Korea", 
+          "Indonisia",
+          "Colombia",
+          "Ouest Africa",
+          "Australia", 
+          "Java",
+          "Dominica",
+          "Rodrigue Island", 
+          "Central Mexico",
+          "New Guinea",
+          "South America",
+          "Costa rica",
+          "Vietnam"
+        ]
+      },
+      "Description": {
+            "type": "string"
+          },
+      "Temperature max": {
+        "type" : "object",
+        "required" : [
+          "F", 
+          "C"
+        ],
+        "properties": {
+          "F" : {
+            "type": "number"
+          },
+          "C" : {
+            "type": "number"
+          }
+        }
+      },
+      "Blooming season": {
+            "type": "string"
+          },
+      "Url": {
+            "type": "string"
+          },
+      "Color of leaf": {
+        "type" : "string",
+        "enum" : [
+           "Dark green",
+           "Yellow",
+           "Medium green",
+           "Light green",
+           "Red",
+           "Grey",
+           "White",
+           "Cream",
+           "Silver",
+           "Cream yellow",
+           "Bronze",
+           "Pink",
+           "Orange",
+           "Blue",
+           "Lime"
+        ]
+      },
+      "Watering": {
+            "type": "string"
+          },
+      "Color of blooms": {
+            "type": "string"
+          },
+      "Zone": {
+        "type" : "string",
+        "enum" : [
+        "11-10",
+        "11", 
+        "9",
+        "7",
+        "11-11",
+        "11-9",
+        "8",
+        "11-12",
+        "10-9",
+        "11-14",
+        "12",
+        "10-11",
+        "11-21",
+        "13",
+        "6"
+      ]
+      },
+      "Common-name": {
+        "type":"string",
+        "enum" : [
+          "Adonidia",
+          "African evergreen",
+          "African fern pine",
+          "Algerian ivy",
+          "Aralia Balfouriana",
+          "Areca palm",
+          "Arrowhead vine",
+          "Aspidistra Milky Way",
+          "Autralian maidenhair",
+          "Baby rubber plant",
+          "Balfour aralia",
+          "Bamboo palm",
+          "Bella palm",
+          "Bird nest Anthurium",
+          "Birdnest fern",
+          "Birdnest sansevieria",
+          "Blue Agave",
+          "Boston fern",
+          "Bougainvillia",
+          "Bower of beauty",
+          "Bower plant",
+          "Bronze Anthurium",
+          "Buddhist pine",
+          "Burro-tail",
+          "Butterfly palm",
+          "Buttrefly Ginger",
+          "Cabbage Anthurium",
+          "Calypso Queen",
+          "Cape mahogany",
+          "Cast iron plant",
+          "Century plant",
+          "Chicken gizard aralia",
+          "China doll",
+          "Chinese Evergreen",
+          "Chinese hibiscus",
+          "Christ-thorn",
+          "Christmas bells",
+          "Christmas palm",
+          "Coral berry",
+          "Cordatum vine",
+          "Cornstalk plant",
+          "Creeping fig",
+          "Cretan brake",
+          "Croton",
+          "Crown of thorns",
+          "Delta maidenhair",
+          "Devil's ivy",
+          "Dragon-tree Agave",
+          "Dumcane",
+          "Dwarf bouquet",
+          "Dwarf palm",
+          "Dwarf treefern",
+          "Elephant ear",
+          "Elephant foot",
+          "English ivy",
+          "Fabian Aralia",
+          "False aralia",
+          "Fernleaf Philodendron",
+          "Fidleleaf fig",
+          "Fish tail palm",
+          "Giant Candelabra tree",
+          "Golden Barrel",
+          "Golden Pothos",
+          "Golden Trumpet",
+          "Goosefoot plant",
+          "Grape Ivy",
+          "Grass tree",
+          "Green prayer plant",
+          "Guzmania",
+          "Hawaiian elf",
+          "Heartleaf philodendron",
+          "Herringbone",
+          "Holly-fern",
+          "Indian kale",
+          "Jade Plant",
+          "Janet Craig",
+          "Japanese Aralia",
+          "Japanese tassel fern",
+          "Kentia palm",
+          "King sago",
+          "Korean rock fern",
+          "Lacy tree-philodendron",
+          "Lady palm",
+          "Lilliput Agave",
+          "Lime philodendron",
+          "Lipstick",
+          "Lisa Dracaena",
+          "Madagascar dragon tree",
+          "Madagascar Palm",
+          "Maindenhair",
+          "Majesty palm",
+          "Malaysian Dracaena",
+          "Manila palm",
+          "Medallion Calathea",
+          "Mexican Breadfruit",
+          "Ming Aralia",
+          "Miniature fishtail",
+          "Miniature treefern",
+          "Monster cactus",
+          "Montgomery ivy",
+          "Neanthebella palm",
+          "Oleander",
+          "Orchid cactus",
+          "Palm lily",
+          "Paper flower",
+          "Paradise palm",
+          "Parasol plant",
+          "Parlor ivy",
+          "Parlor palm",
+          "Parrot palm",
+          "Parsley panax",
+          "Peace lily",
+          "Pepper face",
+          "Phrynium",
+          "Picta Philodendron",
+          "Pignee Date palm",
+          "Pink praying plant",
+          "Pink quill",
+          "Pony tail",
+          "Rabbit's foot",
+          "Red Aralia",
+          "Red Philodendron",
+          "Reed Palm",
+          "Rose bay",
+          "Rose grape",
+          "Rosy Maidenhair",
+          "Rubber plant",
+          "Sago palm",
+          "Satin pothos",
+          "Silver Calathea",
+          "Silver Lace Fern",
+          "Silver Ribbon Fern",
+          "Silver vase",
+          "Snake plant",
+          "Snake's beard",
+          "Spider plant",
+          "Spindle palm",
+          "Spineless yucca",
+          "Spiny licuala palm",
+          "Splitleaf Philodendron",
+          "Squirrel's foot",
+          "Staghorn fern",
+          "Steel palm",
+          "Stiped calathea",
+          "Striped Dracaena",
+          "Stromante",
+          "Sweetheart plant",
+          "Sword fern",
+          "Tailflower",
+          "Thread Agave",
+          "Tree Maindenhair fern",
+          "Tree-Cereus",
+          "Tricolor Peperomia",
+          "Tsu-sima holly fern",
+          "Umbella plant",
+          "Variegated Balfour aralia",
+          "Variegated Carabbean Agave",
+          "Variegated english ivy",
+          "Variegated Euphorbia",
+          "Variegated lily-turf",
+          "Velvet Calathea",
+          "Velvet-leaf vine",
+          "Wax flower",
+          "Wax plant",
+          "Weeping fig",
+          "White bird of paradise",
+          "White Ginger",
+          "White Pothos",
+          "Willow Ficus",
+          "Willow fig tree",
+          "Yellow Hawaiian elf",
+          "Yellow Malaysian Dracaena",
+          "Yellow parasol plant",
+          "Zz plant"
+        ]
+      },
+      "Available sizes (Pot)": {
+            "type": "string"
+          },
+      "Other names": {
+        "type" : "string",
+        "enum" : [
+          "(A. sanderiana x A. lowii grandis)",
+          "A. huegelii",
+          "A. korthalsii",
+          "Aglaonema 'Gabriella'",
+          "Aglaonema 'Maria', Aglaonema commutatum",
+          "Alocasia guttata Imperialis",
+          "Anthericum",
+          "Anthurium bellum",
+          "Anthurium tetragonum",
+          "Aralia sieboldii",
+          "Aspidium",
+          "Beaucarnea",
+          "Billbergia rhodocyanea",
+          "Brassaia actinophylla",
+          "C. arborescens",
+          "Chrysalidocarpus lutescens",
+          "Collinia",
+          "cuneatum",
+          "Davallia canariensis",
+          "Dizygotheca elegantissima",
+          "Elaeophorbia drupifera",
+          "Euphorbia erythraea, Euphorbia candelabrum variegata",
+          "Euphorbia splendens",
+          "Ficus binnenbijkii Alii",
+          "Ficus binnenbijkii Amstel King",
+          "Ficus elastica 'Sylvie'",
+          "graminifolia",
+          "Hedera algeriensis",
+          "Heptapleurum arboricola",
+          "Howeia",
+          "lurida",
+          "Mascarena verschaffeltii",
+          "Milky Way/ Amanokawa (Jap)",
+          "Nephthytis liberica",
+          "Nothopanax scutellarium",
+          "Philodendron cordatum",
+          "Phrynium",
+          "Platycerium alcicorne",
+          "platyrachis X cyanea",
+          "Pleomele reflexa",
+          "Polyscias balfouriana",
+          "Polystichum setosum",
+          "Rhapis flabelliformis",
+          "Sansevieria zeylanica",
+          "Scindapsus aureus Marble Queen",
+          "Scindapsus aureus, Rhaphidophora aurea",
+          "Tillandsia morreniana",
+          "Trichosporum",
+          "wilsonii, caribaea",
+          "X. australis",
+          "Yautia"
+        ]
+      },
+      "Temperature min": {
+        "type" : "object",
+        "required" : [
+          "F", 
+          "C"
+        ],
+        "properties": {
+          "F" : {
+            "type": "number"
+          },
+          "C" : {
+            "type": "number"
+          }
+        }
+      },
+      "Pot diameter (cm)": {
+        "type" : "object",
+        "required" : [
+          "M", 
+          "CM"
+        ],
+        "properties": {
+          "M" : {
+            "type": "number"
+          },
+        "CM" : {
+            "type": "number"
+          }
+        }
+      },
+      "Climat": {
+            "type": "string"
+      }
+      }
+      }
+      },
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKey": []
+    }
+  ]
+ 
+}
+    
